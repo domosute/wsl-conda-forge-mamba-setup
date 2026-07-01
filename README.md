@@ -1,4 +1,4 @@
-# WSL Conda Forge Mamba Setup
+# WSL Conda Forge Micromamba Setup
 
 ## 1. Motivation
 Due to the increase of packages, Anaconda3 installer is becoming painfully slow. This step-by-step tutorial is focusing on Conda Forge based package installer and mamba CLI package manager for speed-optimized package installation/maintenance process.
@@ -61,8 +61,7 @@ https://mamba.readthedocs.io/en/latest/installation.html
 
 ```
 cd ~
-curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-bash Mambaforge-$(uname)-$(uname -m).sh
+curl -L -O "https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba"
 ```
 _[Note]: After installation exit Ubuntu and restart._
 
