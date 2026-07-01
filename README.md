@@ -36,7 +36,7 @@ Map if network drive is available. Below example, P: and Z: drives are exisited 
 ```
 sudo mkdir -p /dfs/{p,z}
 ```
-### 2.6.2. Auto mount network drive
+### 2.6.2. Auto-mount network drive
 Make sure to set parameter in `/etc/wsl.conf` so that the drive is mounted during startup.
 ```
 [automount]
@@ -55,27 +55,35 @@ _[Note]: 2021/05/12: If the network drives lost mount, manual mount or restart i
 $ sudo mount -a
 ```
 
-### 2.7. Download Mamba-Forge Version of Installer (miniforge)
+### 2.7. Download micromamba
 Install it under /home/`<username>`/mamba directory.    
-https://mamba.readthedocs.io/en/latest/installation.html
+[https://mamba.readthedocs.io/en/latest/installation.html](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html)
 
 ```
 cd ~
-curl -L -O "https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba"
+curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
 ```
+Add environment
+
+```
+./bin/micromamba shell init -s bash -r ~/micromamba
+source .bashrc
+```
+
+
 _[Note]: After installation exit Ubuntu and restart._
 
 If the environment file is already available, populate with `mamba env update` command.
 ```
-$ mamba env update -n base -f saved_env_file.yml
+micromamba env update -n base -f saved_env_file.yml
 ```
 
 ### 2.8. Install Packages for Data Analytics
 ```
-mamba update mamba
-mamba update -y --all
-mamba install -y jupyter jupyterlab numpy scipy pandas nodejs
-mamba install -y xlrd xlsxwriter
+micromamba update mamba
+micromamba update -y --all
+micromamba install -y jupyter jupyterlab numpy scipy pandas nodejs
+micromamba install -y xlrd xlsxwriter
 ```
 _[Optional]: Depending upon the script running, proper packages needed to be installed with `mamba install` commmand_
 
