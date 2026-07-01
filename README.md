@@ -34,7 +34,7 @@ _[Note]: upgrade openssl to make sure `conda update` to work..._
 #### 2.6.1. Create Directories for Mappping
 Map if network drive is available. Below example, P: and Z: drives are exisited for the Windows workstation.
 ```
-$ sudo mkdir -p /dfs/{p,z}
+sudo mkdir -p /dfs/{p,z}
 ```
 ### 2.6.2. Auto mount network drive
 Make sure to set parameter in `/etc/wsl.conf` so that the drive is mounted during startup.
@@ -60,9 +60,9 @@ Install it under /home/`<username>`/mamba directory.
 https://mamba.readthedocs.io/en/latest/installation.html
 
 ```
-$ cd ~
-$ curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-$ bash Mambaforge-$(uname)-$(uname -m).sh
+cd ~
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+bash Mambaforge-$(uname)-$(uname -m).sh
 ```
 _[Note]: After installation exit Ubuntu and restart._
 
@@ -73,10 +73,10 @@ $ mamba env update -n base -f saved_env_file.yml
 
 ### 2.8. Install Packages for Data Analytics
 ```
-$ mamba update mamba
-$ mamba update -y --all
-$ mamba install -y jupyter jupyterlab numpy scipy pandas nodejs
-$ mamba install -y xlrd xlsxwriter
+mamba update mamba
+mamba update -y --all
+mamba install -y jupyter jupyterlab numpy scipy pandas nodejs
+mamba install -y xlrd xlsxwriter
 ```
 _[Optional]: Depending upon the script running, proper packages needed to be installed with `mamba install` commmand_
 
@@ -128,13 +128,13 @@ This is for the user to wish run the script in periodical manner.
 #### 3.1.1. installation 
 Install cron if it is not already installed.
 ```
-$ sudo apt-get install -y cron
+sudo apt-get install -y cron
 ```
 
 Modify Sudoers file to run cron during WSL startup.
 
 ```
-$ sudo vi /etc/sudoers
+sudo vi /etc/sudoers
 ```
 
 Add the following at the end of sudoers file. Modify the file by existing `wq!`.
@@ -152,12 +152,12 @@ sudo service cron start
 2). set user's account so that password won't be required with sudo command.    
 _Modify <username> according to the setup._
 ```
-$ echo "<username> ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/<username>
+echo "<username> ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/<username>
 ```
 
 Restart Ubuntu to make sure cron will work.    
 ```
-$ sudo service cron status
+sudo service cron status
 * cron is running
 ```
 #### 3.1.2. Setting Up Cron job
@@ -165,7 +165,7 @@ Below is the template to run ipython notebook `test.ipynb` which is saved under 
 
 1). Edit crontab
 ```
-$ crontab -e
+crontab -e
 ```
 
 Add below, this will add time stamp in cron_job.log file under user's directory every minute.    
@@ -186,12 +186,12 @@ cd ~
 
 3). Make sure to set the `test_schedule.sh` executable.
 ```
-$ chmod +x /home/<username>/notebook/test/test_schedule.sh
+chmod +x /home/<username>/notebook/test/test_schedule.sh
 ```
 
 4). Cron Job Log will be shown in `/var/log/cron.log`. If it is not shown, reinstall rsyslog and reconfigure it.
 ```
-$ sudo apt-get purge -y rsyslog
-$ sudo apt-get install -y rsyslog
-$ sudo dpkg-reconfigure rsyslog
+sudo apt-get purge -y rsyslog
+sudo apt-get install -y rsyslog
+sudo dpkg-reconfigure rsyslog
 ```
