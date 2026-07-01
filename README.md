@@ -73,7 +73,7 @@ source .bashrc
 
 _[Note]: After installation exit Ubuntu and restart._
 
-If the environment file is already available, populate with `mamba env update` command.
+If the environment file is already available, populate with `micromamba env update` command.
 ```
 micromamba env update -n base -f saved_env_file.yml
 ```
@@ -85,7 +85,7 @@ micromamba update -y --all
 micromamba install -y jupyter jupyterlab numpy scipy pandas nodejs
 micromamba install -y xlrd xlsxwriter
 ```
-_[Optional]: Depending upon the script running, proper packages needed to be installed with `mamba install` commmand_
+_[Optional]: Depending upon the script running, proper packages needed to be installed with `micromamba install` commmand_
 
 ### 2.9. Add SSL Certificate
 This will enable to pull the repository with git command.
