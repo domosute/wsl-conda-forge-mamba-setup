@@ -80,7 +80,7 @@ micromamba env update -n base -f saved_env_file.yml
 
 ### 2.8. Install Packages for Data Analytics
 ```
-micromamba update mamba
+micromamba update micromamba
 micromamba update -y --all
 micromamba install -y jupyter jupyterlab numpy scipy pandas nodejs
 micromamba install -y xlrd xlsxwriter
