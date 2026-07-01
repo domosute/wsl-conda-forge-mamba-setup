@@ -21,12 +21,12 @@ _In case if the default user name was not created during installation process, p
 
 ### 2.5. Update and install packages
 ```
-$ sudo apt update
-$ sudo apt upgrade
-$ suto apt-get upgrade openssl
-$ sudo apt-get install -y apt-utils nodejs npm
-$ sudo apt-get install -y pandoc poppler-utils emacs-nox
-$ sudo apt-get install -y tree
+sudo apt update
+sudo apt upgrade
+suto apt-get upgrade openssl
+sudo apt-get install -y apt-utils nodejs npm
+sudo apt-get install -y pandoc poppler-utils emacs-nox
+sudo apt-get install -y tree
 ```
 _[Note]: upgrade openssl to make sure `conda update` to work..._
 
